@@ -82,9 +82,9 @@ ZIG ?= $(shell which zig 2>/dev/null || echo -e "error: Missing zig. Please make
 # This is easier to happen than you'd expect.
 # Using realpath here causes issues because clang uses clang++ as a symlink
 # so if that's resolved, it won't build for C++
-REAL_CC = $(shell which clang-16 2>/dev/null || which clang 2>/dev/null)
-REAL_CXX = $(shell which clang++-16 2>/dev/null || which clang++ 2>/dev/null)
-CLANG_FORMAT = $(shell which clang-format-16 2>/dev/null || which clang-format 2>/dev/null)
+REAL_CC ?= $(shell which clang-16 2>/dev/null || which clang 2>/dev/null)
+REAL_CXX ?= $(shell which clang++-16 2>/dev/null || which clang++ 2>/dev/null)
+CLANG_FORMAT ?= $(shell which clang-format-16 2>/dev/null || which clang-format 2>/dev/null)
 
 CC = $(REAL_CC)
 CXX = $(REAL_CXX)
